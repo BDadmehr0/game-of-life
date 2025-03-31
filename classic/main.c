@@ -70,7 +70,11 @@ void print_grid(int **grid, int rows, int cols) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             char random_character = random_char();
-            printf("%c", grid[i][j] ? random_character : ' ');
+            if (grid[i][j]) {
+                printf("\033[31m%c\033[0m", random_character); // قرمز
+            } else {
+                printf(" ");
+            }
         }
         printf("\n");
     }
